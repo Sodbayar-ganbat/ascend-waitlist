@@ -388,9 +388,9 @@
       btn.classList.add('loading');
 
       try {
-        const res = await fetch('https://formspree.io/f/REPLACE_ME', {
+        const res = await fetch('https://siri-tool-dev.up.railway.app/waitlist', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),
         });
 
