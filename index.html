@@ -29,9 +29,7 @@
       --ui:       'DM Sans', sans-serif;
     }
 
-    html, body {
-      height: 100%;
-    }
+    html, body { height: 100%; }
 
     body {
       background-color: var(--bg);
@@ -41,13 +39,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 48px 24px;
+      padding: 64px 24px 80px;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* Grain overlay */
     body::before {
       content: '';
       position: fixed;
@@ -58,44 +54,40 @@
       opacity: 0.6;
     }
 
-    /* Radial glow behind logo */
     .glow {
       position: fixed;
-      top: -120px;
+      top: -140px;
       left: 50%;
       transform: translateX(-50%);
-      width: 600px;
-      height: 600px;
+      width: 700px;
+      height: 700px;
       background: radial-gradient(ellipse at center, rgba(201,168,76,0.08) 0%, rgba(123,82,171,0.04) 40%, transparent 70%);
       pointer-events: none;
       z-index: 0;
     }
 
-    /* Main container */
     .container {
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 460px;
+      max-width: 480px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0;
     }
 
-    /* Logo */
+    /* ── Logo & wordmark ── */
     .logo-wrap {
-      margin-bottom: 28px;
+      margin-bottom: 20px;
       animation: fadeUp 0.8s ease both;
     }
     .logo-wrap img {
-      width: 72px;
-      height: 72px;
+      width: 64px;
+      height: 64px;
       border-radius: 50%;
       display: block;
     }
 
-    /* Wordmark */
     .wordmark {
       font-family: var(--serif);
       font-size: 11px;
@@ -103,37 +95,63 @@
       letter-spacing: 0.35em;
       color: var(--gold);
       text-transform: uppercase;
-      margin-bottom: 52px;
-      animation: fadeUp 0.8s 0.1s ease both;
+      margin-bottom: 44px;
+      animation: fadeUp 0.8s 0.08s ease both;
     }
 
-    /* Headline */
+    /* ── Headline ── */
     h1 {
       font-family: var(--serif);
-      font-size: clamp(38px, 8vw, 52px);
+      font-size: clamp(36px, 8vw, 50px);
       font-weight: 500;
       line-height: 1.1;
       letter-spacing: -0.01em;
       text-align: center;
       color: var(--paper);
-      margin-bottom: 20px;
-      animation: fadeUp 0.8s 0.2s ease both;
+      margin-bottom: 24px;
+      animation: fadeUp 0.8s 0.15s ease both;
     }
     h1 em {
       font-style: italic;
       color: var(--gold);
     }
 
-    /* Subheadline */
+    /* ── Capability pills ── */
+    .pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.22s ease both;
+    }
+    .pill {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 5px 14px;
+      background: rgba(255,255,255,0.015);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .pill:hover {
+      color: var(--gold);
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.04);
+    }
+
+    /* ── Subheadline ── */
     .sub {
       font-size: 15px;
       font-weight: 300;
-      line-height: 1.6;
+      line-height: 1.65;
       color: var(--muted);
       text-align: center;
       max-width: 340px;
-      margin-bottom: 48px;
-      animation: fadeUp 0.8s 0.3s ease both;
+      margin-bottom: 44px;
+      animation: fadeUp 0.8s 0.28s ease both;
     }
     .sub code {
       font-family: var(--ui);
@@ -147,10 +165,103 @@
       font-size: 13px;
     }
 
-    /* Form */
+    /* ── Demo video ── */
+    .demo {
+      width: 100%;
+      margin-bottom: 48px;
+      animation: fadeUp 0.8s 0.34s ease both;
+    }
+    .demo-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 14px;
+      opacity: 0.6;
+    }
+    .video-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--bg2);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.025) inset;
+    }
+    .video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+    .play-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: default;
+      transition: background 0.2s;
+    }
+    .play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--gold);
+      margin-left: 3px;
+    }
+    .placeholder-text {
+      font-size: 11px;
+      color: var(--muted);
+      opacity: 0.45;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Waitlist counter ── */
+    .counter {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .counter-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      animation: livepulse 2.4s ease-in-out infinite;
+    }
+    @keyframes livepulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(201,168,76,0.5); }
+      60%       { opacity: 0.7; box-shadow: 0 0 0 5px rgba(201,168,76,0); }
+    }
+    .counter strong {
+      color: var(--paper);
+      font-weight: 500;
+    }
+
+    /* ── Form ── */
     .form-wrap {
       width: 100%;
-      animation: fadeUp 0.8s 0.4s ease both;
+      animation: fadeUp 0.8s 0.46s ease both;
     }
     form {
       display: flex;
@@ -158,7 +269,7 @@
       gap: 12px;
       width: 100%;
     }
-    input[type="email"] {
+    input[type="tel"] {
       width: 100%;
       padding: 15px 18px;
       background: var(--bg2);
@@ -171,10 +282,8 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
-    input[type="email"]::placeholder {
-      color: var(--muted);
-    }
-    input[type="email"]:focus {
+    input[type="tel"]::placeholder { color: var(--muted); }
+    input[type="tel"]:focus {
       border-color: var(--gold-dim);
       box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
     }
@@ -202,15 +311,9 @@
       box-shadow: 0 0 28px rgba(201,168,76,0.3);
       transform: translateY(-1px);
     }
-    button[type="submit"]:active {
-      transform: translateY(0);
-    }
-    button[type="submit"]:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
+    button[type="submit"]:active  { transform: translateY(0); }
+    button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
 
-    /* Spinner */
     .spinner {
       width: 16px;
       height: 16px;
@@ -220,11 +323,30 @@
       animation: spin 0.7s linear infinite;
       display: none;
     }
-    button.loading .spinner { display: block; }
+    button.loading .spinner  { display: block; }
     button.loading .btn-text { display: none; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Success */
+    /* ── Founding perk note ── */
+    .founding-perk {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .founding-perk .dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.65;
+      flex-shrink: 0;
+    }
+
+    /* ── Success state ── */
     .success {
       display: none;
       text-align: center;
@@ -264,58 +386,50 @@
       font-weight: 300;
     }
 
-    /* Perks */
-    .perks {
-      display: flex;
-      gap: 28px;
-      margin-top: 44px;
-      animation: fadeUp 0.8s 0.5s ease both;
-    }
-    .perk {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 12.5px;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.01em;
-    }
-    .perk-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      opacity: 0.7;
-    }
-
-    /* Divider */
+    /* ── Divider ── */
     .divider {
-      width: 40px;
+      width: 36px;
       height: 1px;
       background: var(--line);
       margin: 44px auto 0;
       animation: fadeUp 0.8s 0.55s ease both;
     }
 
-    /* Footer */
+    /* ── Founder line ── */
+    .founder {
+      margin-top: 24px;
+      font-size: 12.5px;
+      font-weight: 300;
+      color: var(--muted);
+      text-align: center;
+      opacity: 0.65;
+      line-height: 1.7;
+      animation: fadeUp 0.8s 0.6s ease both;
+    }
+    .founder em {
+      font-style: normal;
+      color: var(--paper);
+      opacity: 0.85;
+    }
+
+    /* ── Footer ── */
     footer {
       margin-top: 24px;
       font-size: 11px;
       color: var(--muted);
-      opacity: 0.5;
-      letter-spacing: 0.05em;
-      animation: fadeUp 0.8s 0.6s ease both;
+      opacity: 0.45;
+      letter-spacing: 0.06em;
+      animation: fadeUp 0.8s 0.65s ease both;
     }
 
-    /* Animations */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(14px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 400px) {
-      .perks { flex-direction: column; gap: 12px; align-items: center; }
+      .pills { gap: 6px; }
+      .pill  { padding: 4px 12px; font-size: 11px; }
     }
   </style>
 </head>
@@ -333,19 +447,49 @@
 
     <h1>Your AI is always <em>one word</em> away.</h1>
 
+    <div class="pills">
+      <span class="pill">Texts</span>
+      <span class="pill">Emails</span>
+      <span class="pill">Calendar</span>
+      <span class="pill">Food</span>
+      <span class="pill">Search</span>
+    </div>
+
     <p class="sub">
       Say <code>Hey Siri, Ascend</code> — no screen, no tapping.<br />
       Just talk. Your AI handles the rest.
     </p>
 
+    <div class="demo">
+      <p class="demo-label">See it in action</p>
+      <div class="video-wrap" id="video-wrap">
+        <!--
+          When your demo is ready, replace this section with:
+          <video src="demo.mp4" autoplay muted loop playsinline></video>
+          and remove the .video-placeholder div below.
+        -->
+        <div class="video-placeholder" id="video-placeholder">
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </div>
+          <span class="placeholder-text">Demo coming soon</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="counter">
+      <div class="counter-dot"></div>
+      <span>Join <strong>1,200+</strong> people on the waitlist</span>
+    </div>
+
     <div class="form-wrap">
       <form id="waitlist-form">
         <input
-          type="email"
-          name="email"
-          placeholder="your@email.com"
+          type="tel"
+          name="phone"
+          placeholder="+1 (555) 000-0000"
           required
-          autocomplete="email"
+          autocomplete="tel"
         />
         <button type="submit" id="submit-btn">
           <div class="spinner"></div>
@@ -358,31 +502,36 @@
           <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
         <h2>You're on the list.</h2>
-        <p>We'll reach out when Ascend is ready for you.</p>
+        <p>We'll text you when Ascend is ready for you.</p>
+      </div>
+
+      <div class="founding-perk" id="founding-perk">
+        <div class="dot"></div>
+        <span>Founding members get free early access</span>
       </div>
     </div>
 
-    <div class="perks">
-      <div class="perk"><div class="perk-dot"></div> Early access</div>
-      <div class="perk"><div class="perk-dot"></div> Founding member</div>
-      <div class="perk"><div class="perk-dot"></div> Built for voice</div>
-    </div>
-
     <div class="divider"></div>
+
+    <p class="founder">
+      Built by a <em>Berkeley student</em> who got tired of Siri.<br />
+      Join them.
+    </p>
 
     <footer>© 2026 Ascend</footer>
 
   </div>
 
   <script>
-    const form = document.getElementById('waitlist-form');
-    const btn  = document.getElementById('submit-btn');
-    const success = document.getElementById('success');
+    const form        = document.getElementById('waitlist-form');
+    const btn         = document.getElementById('submit-btn');
+    const success     = document.getElementById('success');
+    const foundingPerk = document.getElementById('founding-perk');
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = form.email.value.trim();
-      if (!email) return;
+      const phone = form.phone.value.trim();
+      if (!phone) return;
 
       btn.disabled = true;
       btn.classList.add('loading');
@@ -391,11 +540,12 @@
         const res = await fetch('https://siri-tool-dev.up.railway.app/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ phone }),
         });
 
         if (res.ok) {
           form.style.display = 'none';
+          foundingPerk.style.display = 'none';
           success.style.display = 'block';
         } else {
           throw new Error('Server error');
