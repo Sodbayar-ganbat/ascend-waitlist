@@ -457,7 +457,7 @@
       btn.classList.add('loading');
 
       try {
-        const res = await fetch('https://siri-tool-dev.up.railway.app/waitlist', {
+        const res = await fetch('https://siri-tool-production.up.railway.app/waitlist', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ phone }),
