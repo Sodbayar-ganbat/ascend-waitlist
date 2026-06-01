@@ -450,7 +450,7 @@
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const phone = form.phone.value.trim();
+      const phone = form.phone.value.replace(/\D/g, '');
       if (!phone) return;
 
       btn.disabled = true;
