@@ -165,72 +165,7 @@
       font-size: 13px;
     }
 
-    /* ── Demo video ── */
-    .demo {
-      width: 100%;
-      margin-bottom: 48px;
-      animation: fadeUp 0.8s 0.34s ease both;
-    }
-    .demo-label {
-      font-size: 10px;
-      letter-spacing: 0.15em;
-      color: var(--muted);
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 14px;
-      opacity: 0.6;
-    }
-    .video-wrap {
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: var(--bg2);
-      overflow: hidden;
-      position: relative;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.025) inset;
-    }
-    .video-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .video-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-    }
-    .play-btn {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: default;
-      transition: background 0.2s;
-    }
-    .play-btn svg {
-      width: 18px;
-      height: 18px;
-      fill: var(--gold);
-      margin-left: 3px;
-    }
-    .placeholder-text {
-      font-size: 11px;
-      color: var(--muted);
-      opacity: 0.45;
-      letter-spacing: 0.06em;
-    }
-
-    /* ── Waitlist counter ── */
+/* ── Waitlist counter ── */
     .counter {
       display: flex;
       align-items: center;
@@ -460,24 +395,7 @@
       Just talk. Your AI handles the rest.
     </p>
 
-    <div class="demo">
-      <p class="demo-label">See it in action</p>
-      <div class="video-wrap" id="video-wrap">
-        <!--
-          When your demo is ready, replace this section with:
-          <video src="demo.mp4" autoplay muted loop playsinline></video>
-          and remove the .video-placeholder div below.
-        -->
-        <div class="video-placeholder" id="video-placeholder">
-          <div class="play-btn">
-            <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          </div>
-          <span class="placeholder-text">Demo coming soon</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="counter">
+<div class="counter">
       <div class="counter-dot"></div>
       <span>Join <strong>1,200+</strong> people on the waitlist</span>
     </div>
